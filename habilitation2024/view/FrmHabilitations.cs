@@ -116,7 +116,7 @@ namespace habilitation2024.view
         {
             if(!txtNom.Text.Equals("") && !txtPrenom.Text.Equals("") && !txtTel.Text.Equals("") && !txtMail.Text.Equals("") && cboLstProfil.SelectedIndex != -1)
             {
-                Profil profil = (Profil)bdgProfils.List[bdgDeveloppeurs.Position];
+                Profil profil = (Profil)bdgProfils.List[bdgProfils.Position];
                 if(enCoursDeModifDeveloppeur)
                 {
                     Developpeur developpeur = (Developpeur)bdgDeveloppeurs.List[bdgDeveloppeurs.Position];
@@ -157,6 +157,10 @@ namespace habilitation2024.view
                 developpeur.Pwd = txtPwd.Text;
                 controller.UpdatePwd(developpeur);
                 EnCoursModifPwd(false);
+            }
+            else
+            {
+                MessageBox.Show("Les 2 zones doivent être remplis", "Information");
             }
         }
 

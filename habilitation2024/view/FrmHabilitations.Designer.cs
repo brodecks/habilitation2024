@@ -257,6 +257,7 @@
             // 
             this.txtPwd.Location = new System.Drawing.Point(93, 26);
             this.txtPwd.Name = "txtPwd";
+            this.txtPwd.PasswordChar = '*';
             this.txtPwd.Size = new System.Drawing.Size(296, 22);
             this.txtPwd.TabIndex = 5;
             // 
@@ -264,6 +265,7 @@
             // 
             this.txtValider.Location = new System.Drawing.Point(497, 26);
             this.txtValider.Name = "txtValider";
+            this.txtValider.PasswordChar = '*';
             this.txtValider.Size = new System.Drawing.Size(276, 22);
             this.txtValider.TabIndex = 4;
             // 

@@ -60,6 +60,28 @@ namespace habilitation2024.bddManager
             command.Prepare();
             command.ExecuteNonQuery();
         }
-
+        public List<Object[]> ReqSelect(string stringquery, Dictionary<string, object> parameters = null)
+        {
+            MySqlCommand command = new MySqlCommand(stringquery, connection);
+            if (!(parameters is null))
+            {
+                foreach (KeyValuePair<string, object> parameter in parameters)
+                {
+                    command.Parameters.Add(new MySqlParameter(parameter.Key, parameter.Value));
+                }
+            }
+            command.Prepare();
+            MySqlDataReader reader = command.ExecuteReader();
+            int nbCols = reader.FieldCount;
+            List<Object[]> records = new List<object[]>();
+            while (reader.Read())
+            {
+                Object[] attributs = new Object[nbCols];
+                reader.GetValues(attributs);
+                records.Add(attributs);
+            }
+            reader.Close();
+            return records;
+        }
     }
 }
